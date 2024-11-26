@@ -1,7 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
-
-import { randomBytes } from "crypto";
 import { redirect } from "next/navigation";
+import { NextRequest } from "next/server";
 
 var generateRandomString = function (length: number) {
   var text = "";
@@ -14,7 +12,7 @@ var generateRandomString = function (length: number) {
   return text;
 };
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   var scope =
     "streaming user-read-email user-read-private user-read-currently-playing user-read-playback-state user-read-recently-played";
 
