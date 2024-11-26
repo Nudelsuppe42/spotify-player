@@ -30,3 +30,4 @@ export async function GET(req: NextRequest) {
     "https://accounts.spotify.com/authorize?" + auth_query_parameters.toString()
   );
 }
+ export const runtime = "edge";

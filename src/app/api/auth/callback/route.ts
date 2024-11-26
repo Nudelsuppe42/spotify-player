@@ -37,3 +37,4 @@ export async function GET(req: NextRequest) {
     cookieStore.set("sp_token", (res_data as any).access_token);
     redirect("/?done=true");
 }
+ export const runtime = "edge";

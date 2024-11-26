@@ -6,3 +6,4 @@ export async function GET(req: NextRequest) {
  revalidateTag("player");
  redirect("/")
 }
+ export const runtime = "edge";
