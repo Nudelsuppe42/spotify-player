@@ -2,4 +2,7 @@
 // by running `wrangler types --env-interface CloudflareEnv env.d.ts`
 
 interface CloudflareEnv {
+  SPOTIFY_CLIENT_SECRET: string;
+  SPOTIFY_CLIENT_ID: string; 
+  SPOTIFY_REDIRECT: string; 
 }

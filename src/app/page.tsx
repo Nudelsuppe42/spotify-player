@@ -1,7 +1,7 @@
 import { PlaceholderPlayer, Player } from "@/components/Player";
 
-import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
+import { revalidateTag } from "next/cache";
 
 export default async function Home() {
   const cookieStore = await cookies();

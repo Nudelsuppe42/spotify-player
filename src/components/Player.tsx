@@ -60,7 +60,7 @@ export const PlaceholderPlayer = () => {
 export const Player = async ({ token }: { token: string }) => {
   const track = await getCurrentlyPlayingFetcher(token);
 
-  if (!track) {
+  if (!track || !track.is_playing) {
     return <PlaceholderPlayer />;
   }
 
@@ -101,7 +101,8 @@ export const Player = async ({ token }: { token: string }) => {
               {track.item.name}
             </h2>
             <h3 className="text-2xl pb-2">
-              {track.item.artists.map((a) => a.name).join(", ")}
+              {track.item.artists.map((a) => a.name).join(", ")} in{" "}
+              <i className="text-gray-600">{track.item.album.name}</i>
             </h3>
             <div className="absolute bottom-10">
               <p className="align-text-bottom text-gray-600">
@@ -115,16 +116,6 @@ export const Player = async ({ token }: { token: string }) => {
     </>
   );
 };
-
-/*
-artists[].name
-album.name
-album.release_date
-duration_ms
-name
-
-
-  */
 
 function dayToProgress(day: number) {
   switch (day) {
