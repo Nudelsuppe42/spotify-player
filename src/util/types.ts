@@ -6,6 +6,7 @@ export type CurrentlyPlaying = {
   currently_playing_type: string;
   actions: Actions;
   is_playing: boolean;
+  error:false;
 };
 
 export type Actions = {

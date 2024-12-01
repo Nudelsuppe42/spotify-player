@@ -8,6 +8,22 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.btn {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  transition: all 0.1s;
+}
+
+.brdr {
+  /* border: 1px solid red; */
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.021);
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -30,4 +46,23 @@ body {
 
 .font-passion {
   font-family: var(--font-passion), sans-serif;
+}
+
+.rotate-bg:after {
+  content: "";
+  display: block;
+  z-index: -1;
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  bottom: -2rem;
+  left: 0;
+  background-image: linear-gradient(red, yellow, green);
+  animation: rotate-gradient linear 10s infinite;
+}
+
+@keyframes rotate-gradient {
+  to {
+    transform: rotate(360deg);
+  }
 }
