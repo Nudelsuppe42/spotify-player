@@ -10,7 +10,7 @@ export const getCurrentlyPlayingFetcher = async (token: string) => {
   const response = await fetch(playingOptions.url, {
     method: "get",
     headers: playingOptions.headers,
-    next: { revalidate: 15, tags: ["player"] },
+    next: { revalidate: 10, tags: ["player"] },
   });
   if (response.status !== 200) {
     console.log(response.status, await response.json());

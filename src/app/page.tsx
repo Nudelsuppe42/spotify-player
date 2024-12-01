@@ -1,9 +1,9 @@
+import { FullScreen, Reload } from "@/components/FullScreen";
 /* eslint-disable @next/next/no-img-element */
 import { PlaceholderPlayer, Player } from "@/components/Player";
 
-import FullScreen from "@/components/FullScreen";
-import { cookies } from "next/headers";
 import { revalidateTag } from "next/cache";
+import { cookies } from "next/headers";
 
 export default async function Home() {
   const cookieStore = await cookies();
@@ -29,12 +29,7 @@ export default async function Home() {
         </div>
         {token ? <Player token={token} /> : <PlaceholderPlayer />}
       </div>
-      <a
-        href={token ? "/api/rev" : "/api/auth/token"}
-        className="absolute bottom-1 right-1 z-50 btn"
-      >
-        {token ? "Revalidate" : "Login"}
-      </a>
+     <Reload />
       <FullScreen />
     </main>
   );
