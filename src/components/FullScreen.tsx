@@ -8,13 +8,13 @@ export function FullScreen() {
   const router = useRouter();
   router.prefetch("/api/rev");
   useEffect(() => {
-    document.addEventListener("keypress", (e) => {
+    document?.addEventListener("keypress", (e) => {
       console.log(e);
       if (e.key === "f") {
         if (document.fullscreenElement) {
           document.exitFullscreen();
         } else {
-          document.getElementById("main-content")?.requestFullscreen();
+          document?.getElementById("main-content")?.requestFullscreen();
         }
       } else if (e.key === "r") {
         router.push("/api/rev");
@@ -38,7 +38,7 @@ export function FullScreen() {
   );
 }
 
-export function Reload() {
+export function Reload({ hasToken }: { hasToken: boolean }) {
   useEffect(() => {
     document.addEventListener("keypress", (e) => {
       if (e.key === "r") {
@@ -47,12 +47,16 @@ export function Reload() {
     });
   });
 
-  return (
+  return hasToken ? (
     <button
       onClick={() => revalidateAction()}
       className="absolute bottom-1 right-1 z-50 btn"
     >
       Reload
     </button>
+  ) : (
+    <a href="/api/auth/token" className="absolute bottom-1 right-1 z-50 btn">
+      Login
+    </a>
   );
 }
